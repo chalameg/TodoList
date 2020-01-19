@@ -1,0 +1,26 @@
+<div style='text-align:center;'>
+<h1 style="">Todo List</h1>
+<%= link_to 'New todo', new_todo_path %>
+<hr>
+</div>
+<div style='margin-left:20%;text-align:center;'>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @todos.each do |todo| %>
+    <tr>
+      <td><%= todo.title %></td>
+      <td><%= todo.description %></td>
+      <td><%= link_to 'Show', todo_path(todo) %></td>
+      <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+      <td><%= link_to 'Destroy', todo_path(todo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
